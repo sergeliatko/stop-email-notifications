@@ -25,6 +25,11 @@ defined( 'ABSPATH' ) or die( sprintf( 'Please do not load %s directly', __FILE__
 // load namespace
 require_once( dirname( __FILE__ ) . '/autoload.php' );
 
+//load settings library
+require_once( dirname( __FILE__ ) . '/includes/php/html/autoload.php' );
+require_once( dirname( __FILE__ ) . '/includes/php/form-fields/autoload.php' );
+require_once( dirname( __FILE__ ) . '/includes/php/wpsettings/autoload.php' );
+
 // load plugin text domain
 add_action( 'plugins_loaded', function () {
 
