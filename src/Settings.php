@@ -41,29 +41,31 @@ class Settings {
 	protected function __construct() {
 		new UI( array(
 			'pages' => array(
-				'slug'     => 'stop-email-notifications',
-				'parent'   => 'options-general.php',
-				'label'    => __( 'Stop notifications', 'stop-email-notifications' ),
-				'title'    => __( 'Stop Email Notifications Settings', 'stop-email-notifications' ),
-				'sections' => array(
-					array(
-						'id'          => 'registration',
-						'title'       => __( 'User registration', 'stop-email-notifications' ),
-						'description' => __( 'Email notifications sent on new user registration.', 'stop-email-notifications' ),
-						'settings'    => array(
-							array(
-								'option' => Core::REGISTRATION_ADMIN,
-								'type'   => 'checkbox',
-								'label'  => __( 'Do not send to admins.', 'stop-email-notifications' ),
-							),
-							array(
-								'option' => Core::REGISTRATION_USER,
-								'type'   => 'checkbox',
-								'label'  => __( 'Do not send to user.', 'stop-email-notifications' ),
+				array(
+					'slug'     => 'stop-email-notifications',
+					'parent'   => 'options-general.php',
+					'label'    => __( 'Stop notifications', 'stop-email-notifications' ),
+					'title'    => __( 'Stop Email Notifications Settings', 'stop-email-notifications' ),
+					'sections' => array(
+						array(
+							'id'          => 'registration',
+							'title'       => __( 'User registration', 'stop-email-notifications' ),
+							'description' => __( 'Email notifications sent on new user registration.', 'stop-email-notifications' ),
+							'settings'    => array(
+								array(
+									'option' => Core::REGISTRATION_ADMIN,
+									'type'   => 'checkbox',
+									'label'  => __( 'Do not send to admins.', 'stop-email-notifications' ),
+								),
+								array(
+									'option' => Core::REGISTRATION_USER,
+									'type'   => 'checkbox',
+									'label'  => __( 'Do not send to user.', 'stop-email-notifications' ),
+								),
 							),
 						),
 					),
-				),
+				)
 			),
 		) );
 	}
