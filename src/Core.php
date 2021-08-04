@@ -12,8 +12,9 @@ namespace SergeLiatko\StopEmailNotifications;
 class Core {
 
 	//options
-	public const REGISTRATION_USER  = 'sen_registration_user';
-	public const REGISTRATION_ADMIN = 'sen_registration_admin';
+	public const REGISTRATION_USER     = 'sen_registration_user';
+	public const REGISTRATION_ADMIN    = 'sen_registration_admin';
+	public const PASSWORD_CHANGE_ADMIN = 'sen_password_change_admin';
 
 	/**
 	 * @var \SergeLiatko\StopEmailNotifications\Core $instance
@@ -47,13 +48,14 @@ class Core {
 		//load settings
 		Settings::getInstance();
 		//handle new user registration notifications
-		add_action( 'init', array( $this, 'handle_registration_notifications' ), 10, 0 );
+		add_action( 'init', array( $this, 'handle_notifications' ), 10, 0 );
 	}
 
 	/**
-	 * Handles registration notifications depending the user options.
+	 * Handles registration notifications depending on the user options.
 	 */
-	public function handle_registration_notifications() {
+	public function handle_notifications() {
+		//registration
 		if (
 			$this->isSelected( self::REGISTRATION_ADMIN )
 			|| $this->isSelected( self::REGISTRATION_USER )
@@ -62,6 +64,10 @@ class Core {
 			remove_action( 'edit_user_created_user', 'wp_send_new_user_notifications' );
 			add_action( 'register_new_user', array( $this, 'send_new_user_notification' ), 10, 1 );
 			add_action( 'edit_user_created_user', array( $this, 'send_new_user_notification' ), 10, 1 );
+		}
+		//password changes
+		if ( $this->isSelected( self::PASSWORD_CHANGE_ADMIN ) ) {
+			remove_action( 'after_password_reset', 'wp_password_change_notification' );
 		}
 	}
 

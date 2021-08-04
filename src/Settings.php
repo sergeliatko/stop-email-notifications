@@ -64,8 +64,20 @@ class Settings {
 								),
 							),
 						),
+						array(
+							'id'          => 'passwords_change',
+							'title'       => __( 'User password changes', 'stop-email-notifications' ),
+							'description' => __( 'Email notifications sent on user password changes.', 'stop-email-notifications' ),
+							'settings'    => array(
+								array(
+									'option' => Core::PASSWORD_CHANGE_ADMIN,
+									'type'   => 'checkbox',
+									'label'  => __( 'Do not send to admins.', 'stop-email-notifications' ),
+								),
+							),
+						),
 					),
-				)
+				),
 			),
 		) );
 	}
