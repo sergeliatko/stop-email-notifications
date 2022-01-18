@@ -11,7 +11,7 @@
  * Plugin Name: Stop Email Notifications by Serge Liatko
  * Plugin URI:  https://github.com/sergeliatko/stop-email-notifications.git?utm_source=wordpress&utm_medium=plugin&utm_campaign=stop-email-notifications&utm_content=plugin-link
  * Description: Allows you to disable some email notifications sent by WordPress.
- * Version:     0.0.5
+ * Version:     0.0.6
  * Author:      Serge Liatko
  * Author URI:  https://sergeliatko.com?utm_source=wordpress&utm_medium=plugin&utm_campaign=stop-email-notifications&utm_content=author-link
  * Text Domain: stop-email-notifications
